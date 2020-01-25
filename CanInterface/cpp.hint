@@ -1,0 +1,2 @@
+#define CANINTERFACEDLL_API __declspec(dllexport)
+#define CANINTERFACEDLL_API __declspec(dllimport)
