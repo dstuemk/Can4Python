@@ -9,6 +9,41 @@ In theory also other Controllers could be used with little changes in the main *
 * Visual C++ 2015.3 v140 toolset installed (via Visual Studio installer → Modify / Individual Components)
 
 ## Prepare Hardware
+Can4Python uses the Teensy RawHID interface for the USB Communication. In order to send USB packets with a size of 255 Bytes modify the file *%ARDUINO_IDE_INSTALLDIR%\hardware\teensy\avr\cores\teensy4\usb_desc.h* accordingly:
+```
+...
+#elif defined(USB_RAWHID)
+  #define VENDOR_ID		0x16C0
+  #define PRODUCT_ID		0x0486
+  #define RAWHID_USAGE_PAGE	0xFFAB  // recommended: 0xFF00 to 0xFFFF
+  #define RAWHID_USAGE		0x0200  // recommended: 0x0100 to 0xFFFF
+  #define MANUFACTURER_NAME	{'T','e','e','n','s','y','d','u','i','n','o'}
+  #define MANUFACTURER_NAME_LEN	11
+  #define PRODUCT_NAME		{'T','e','e','n','s','y','d','u','i','n','o',' ','R','a','w','H','I','D'}
+  #define PRODUCT_NAME_LEN	18
+  #define EP0_SIZE		64 /* Original: 64 */
+  #define NUM_ENDPOINTS         4
+  #define NUM_USB_BUFFERS	30		/* Original: 12 */
+  #define NUM_INTERFACE		2		/* Original: 2 */
+  #define RAWHID_INTERFACE      0	// RawHID
+  #define RAWHID_TX_ENDPOINT    3   /* Original: 3 */
+  #define RAWHID_TX_SIZE        255  /* Original: 64*/
+  #define RAWHID_TX_INTERVAL    1	// TODO: is this ok for 480 Mbit speed
+  #define RAWHID_RX_ENDPOINT    4
+  #define RAWHID_RX_SIZE        255  /* Original: 64*/
+  #define RAWHID_RX_INTERVAL    1	// TODO: is this ok for 480 Mbit speed
+  #define SEREMU_INTERFACE      1	// Serial emulation
+  #define SEREMU_TX_ENDPOINT    2
+  #define SEREMU_TX_SIZE        64
+  #define SEREMU_TX_INTERVAL    1	 // TODO: is this ok for 480 Mbit speed
+  #define SEREMU_RX_ENDPOINT    2
+  #define SEREMU_RX_SIZE        32
+  #define SEREMU_RX_INTERVAL    2	 // TODO: is this ok for 480 Mbit speed
+  #define ENDPOINT2_CONFIG	ENDPOINT_RECEIVE_INTERRUPT + ENDPOINT_TRANSMIT_INTERRUPT
+  #define ENDPOINT3_CONFIG	ENDPOINT_TRANSMIT_INTERRUPT /*ENDPOINT_RECEIVE_UNUSED + ENDPOINT_TRANSMIT_INTERRUPT*/
+  #define ENDPOINT4_CONFIG	ENDPOINT_RECEIVE_INTERRUPT /*ENDPOINT_RECEIVE_INTERRUPT + ENDPOINT_TRANSMIT_UNUSED*/ 
+...
+```
 1. Run the script *init-repo.sh*
 2. Open the file *Teensy40.ino* with the Arduino Teensy IDE
 3. Compile and Flash
