@@ -1,0 +1,5 @@
+..\Can4Python.cp36-win32.pyd
+PKG-INFO
+SOURCES.txt
+dependency_links.txt
+top_level.txt

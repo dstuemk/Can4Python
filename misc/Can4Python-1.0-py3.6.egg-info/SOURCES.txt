@@ -1,0 +1,9 @@
+CanInterface.cpp
+Devices.cpp
+module.cpp
+setup.py
+Can4Python.egg-info/PKG-INFO
+Can4Python.egg-info/SOURCES.txt
+Can4Python.egg-info/dependency_links.txt
+Can4Python.egg-info/top_level.txt
+hidapi/hid.c
