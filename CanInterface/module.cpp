@@ -20,8 +20,7 @@ public:
 		for (int i = 0; i < payload.size(); i++) payloadArr[i] = payload.at(i);
 		return CanInterface::SendCanMessage(devIndex, messageId, payloadArr, payload.size(), messageFlags);
 	}
-	bool SendCanMessageAsync(int devIndex, unsigned int messageId, std::vector<unsigned char> payload, int payloadLength,
-		int messageFlags)
+	bool SendCanMessageAsync(int devIndex, unsigned int messageId, std::vector<unsigned char> payload, int messageFlags)
 	{
 		unsigned char payloadArr[64];
 		for (int i = 0; i < payload.size(); i++) payloadArr[i] = payload.at(i);
