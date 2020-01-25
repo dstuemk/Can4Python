@@ -5,7 +5,7 @@ In theory also other Controllers could be used with little changes in the main *
 
 ## Prerequisites
 * Visual Studio 2017 or later with the workloads mentioned in this [article](https://docs.microsoft.com/en-us/visualstudio/python/working-with-c-cpp-python-in-visual-studio?view=vs-2019#create-the-python-application) 
-* [Boost 1.65.0](https://www.boost.org/users/history/version_1_65_0.html) and environent variables set to BOOST_ROOT and BOOST_LIBRARYDIR
+* [Boost 1.65.0](https://www.boost.org/users/history/version_1_65_0.html) and environent variables BOOST_ROOT and BOOST_LIBRARYDIR set
 * Visual C++ 2015.3 v140 toolset installed (via Visual Studio installer → Modify / Individual Components)
 
 ## Prepare Hardware
