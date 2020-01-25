@@ -210,3 +210,12 @@ can.CloseCan(0)
     <td class="tg-0lax">Removes the receive handler specified with the ID or all if -1 is used as ID</td>
   </tr>
 </table>
+
+**IdentifierFlags values:**
+- STANDARD_11BIT
+- EXTENDED_29BIT
+
+**MessageFlags values:**
+- USE_EDL
+- USE_BRS
+- USE_EXT
